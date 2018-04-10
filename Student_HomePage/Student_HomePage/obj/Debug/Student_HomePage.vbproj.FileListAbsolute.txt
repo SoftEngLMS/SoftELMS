@@ -1,0 +1,18 @@
+C:\Users\Zia Rehman\AppData\Local\Temporary Projects\Student_HomePage\bin\Debug\Student_HomePage.exe.config
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\bin\Debug\Student_HomePage.exe.config
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\obj\Debug\Student_HomePage.vbprojResolveAssemblyReference.cache
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\bin\Debug\Student_HomePage.exe
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\bin\Debug\Student_HomePage.pdb
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\bin\Debug\Student_HomePage.xml
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\obj\Debug\Student_HomePage.Form1.resources
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\obj\Debug\Student_HomePage.Resources.resources
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\obj\Debug\Student_HomePage.Regristration.resources
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\obj\Debug\Student_HomePage.Schedule.resources
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\obj\Debug\Student_HomePage.StuInfo.resources
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\obj\Debug\Student_HomePage.Transcript.resources
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\obj\Debug\Student_HomePage.vbproj.GenerateResource.Cache
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\obj\Debug\Student_HomePage.exe
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\obj\Debug\Student_HomePage.xml
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\obj\Debug\Student_HomePage.pdb
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\obj\Debug\Student_HomePage.Form2.resources
+C:\Users\Zia Rehman\Desktop\Student_HomePage\Student_HomePage\obj\Debug\Student_HomePage.Task.resources
