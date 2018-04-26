@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MainLMS" Class="northwindDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\ProjectsV13;Initial Catalog=MainLMS;Integrated Security=True" SettingsObjectName="SoftEng_LMS.My.MySettings" SettingsPropertyName="MainLMSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AssignmentTable" Member="AssignmentTables">
+    <Type Name="AssignmentTable">
+      <Column Name="AssignmentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StudentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CourseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Grade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FacultyId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CourseTable_AssignmentTable" Member="CourseTable" ThisKey="CourseId" OtherKey="CourseId" Type="CourseTable" IsForeignKey="true" />
+      <Association Name="FacultyTable_AssignmentTable" Member="FacultyTable" ThisKey="FacultyId" OtherKey="FacultyId" Type="FacultyTable" IsForeignKey="true" />
+      <Association Name="StudentTable_AssignmentTable" Member="StudentTable" ThisKey="StudentId" OtherKey="StudentId" Type="StudentTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClassroomTable" Member="ClassroomTables">
+    <Type Name="ClassroomTable">
+      <Column Name="ClassId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CourseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StudentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FacultyId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CourseTable_ClassroomTable" Member="CourseTable" ThisKey="CourseId" OtherKey="CourseId" Type="CourseTable" IsForeignKey="true" />
+      <Association Name="FacultyTable_ClassroomTable" Member="FacultyTable" ThisKey="FacultyId" OtherKey="FacultyId" Type="FacultyTable" IsForeignKey="true" />
+      <Association Name="StudentTable_ClassroomTable" Member="StudentTable" ThisKey="StudentId" OtherKey="StudentId" Type="StudentTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CourseTable" Member="CourseTables">
+    <Type Name="CourseTable">
+      <Column Name="CourseId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CourseName" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Credits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Semester" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FacultyId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="CourseTable_AssignmentTable" Member="AssignmentTables" ThisKey="CourseId" OtherKey="CourseId" Type="AssignmentTable" />
+      <Association Name="CourseTable_ClassroomTable" Member="ClassroomTables" ThisKey="CourseId" OtherKey="CourseId" Type="ClassroomTable" />
+      <Association Name="CourseTable_TextbookTable" Member="TextbookTables" ThisKey="CourseId" OtherKey="CourseId" Type="TextbookTable" />
+      <Association Name="FacultyTable_CourseTable" Member="FacultyTable" ThisKey="FacultyId" OtherKey="FacultyId" Type="FacultyTable" IsForeignKey="true" />
+      <Association Name="SemesterTable_CourseTable" Member="SemesterTable" ThisKey="Semester" OtherKey="SemesterId" Type="SemesterTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FacultyTable" Member="FacultyTables">
+    <Type Name="FacultyTable">
+      <Column Name="FacultyId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProfName" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ProfLastname" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="FacultyTable_AssignmentTable" Member="AssignmentTables" ThisKey="FacultyId" OtherKey="FacultyId" Type="AssignmentTable" />
+      <Association Name="FacultyTable_ClassroomTable" Member="ClassroomTables" ThisKey="FacultyId" OtherKey="FacultyId" Type="ClassroomTable" />
+      <Association Name="FacultyTable_CourseTable" Member="CourseTables" ThisKey="FacultyId" OtherKey="FacultyId" Type="CourseTable" />
+      <Association Name="UserTable_FacultyTable" Member="UserTable" ThisKey="UserId" OtherKey="UserId" Type="UserTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SemesterTable" Member="SemesterTables">
+    <Type Name="SemesterTable">
+      <Column Name="SemesterId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Semester" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="StarDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="SemesterTable_CourseTable" Member="CourseTables" ThisKey="SemesterId" OtherKey="Semester" Type="CourseTable" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StudentTable" Member="StudentTables">
+    <Type Name="StudentTable">
+      <Column Name="StudentId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StudentName" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="StudentLastname" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Classification" Type="System.String" DbType="NChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="StudentTable_AssignmentTable" Member="AssignmentTables" ThisKey="StudentId" OtherKey="StudentId" Type="AssignmentTable" />
+      <Association Name="StudentTable_ClassroomTable" Member="ClassroomTables" ThisKey="StudentId" OtherKey="StudentId" Type="ClassroomTable" />
+      <Association Name="UserTable_StudentTable" Member="UserTable" ThisKey="UserId" OtherKey="UserId" Type="UserTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TextbookTable" Member="TextbookTables">
+    <Type Name="TextbookTable">
+      <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BookName" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CourseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CourseTable_TextbookTable" Member="CourseTable" ThisKey="CourseId" OtherKey="CourseId" Type="CourseTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserTable" Member="UserTables">
+    <Type Name="UserTable">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Role" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="UserTable_FacultyTable" Member="FacultyTables" ThisKey="UserId" OtherKey="UserId" Type="FacultyTable" />
+      <Association Name="UserTable_StudentTable" Member="StudentTables" ThisKey="UserId" OtherKey="UserId" Type="StudentTable" />
+    </Type>
+  </Table>
+</Database>
